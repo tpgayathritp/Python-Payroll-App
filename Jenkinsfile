@@ -40,12 +40,12 @@ pipeline {
                 archiveArtifacts artifacts: '**/output/**', fingerprint: true
             }
         }
-      stage('Archive Output') {
+      stage('Archive logs') {
            steps {
                 archiveArtifacts artifacts: '**/logs/**', fingerprint: true
             }
         }
-      stage('Archive Output') {
+      stage('Archive payslips') {
            steps {
                 archiveArtifacts artifacts: '**/payslips/**', fingerprint: true
             }
