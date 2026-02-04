@@ -19,7 +19,7 @@ pipeline {
 
         stage('Run Payroll Script') {
             steps {
-                bat "python payroll/main.py"
+                bat "python Payroll.py"
             }
         }
 
