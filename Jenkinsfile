@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        PYTHON = "python"
-    }
-
     stages {
 
         stage('Checkout') {
@@ -16,20 +12,20 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh "${PYTHON} -m pip install --upgrade pip"
-                sh "${PYTHON} -m pip install -r requirements.txt"
+                bat "python -m pip install --upgrade pip"
+                bat "python -m pip install -r requirements.txt"
             }
         }
 
         stage('Run Payroll Script') {
             steps {
-                sh "${PYTHON} payroll/main.py"
+                bat "python payroll/main.py"
             }
         }
 
         stage('Package Output') {
             steps {
-                sh "zip -r payroll_output.zip output/"
+                bat "powershell Compress-Archive -Path output -DestinationPath payroll_output.zip -Force"
             }
         }
 
