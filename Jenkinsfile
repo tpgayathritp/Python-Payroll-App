@@ -61,6 +61,30 @@ pipeline {
          }
       }
 
+     stage('Pipeline Summary') {
+    steps {
+        bat '''
+        echo ============================================
+        echo           PAYROLL PIPELINE SUMMARY
+        echo ============================================
+        echo.
+        echo Payslips generated:
+        dir /b payslips
+        echo.
+        echo Logs generated:
+        dir /b logs
+        echo.
+        echo Payroll summary CSV files:
+        dir /b output\\*.csv
+        echo.
+        echo Deployment folder:
+        echo C:\\Users\\gayathri\\Desktop\\Python\\Payroll_app\\Deployed
+        echo.
+        echo Pipeline completed successfully.
+        echo ============================================
+        '''
+    }
+}
 
         
     }
