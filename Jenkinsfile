@@ -50,6 +50,18 @@ pipeline {
                 archiveArtifacts artifacts: '**/payslips/**', fingerprint: true
             }
         }
+
+     stage('Deploy to Local Folder') {
+    steps {
+        bat 'if not exist C:\\Users\\gayathri\\Desktop\\Python\\Payroll_app\\Deployed mkdir C:\\Users\\gayathri\\Desktop\\Python\\Payroll_app\\Deployed'
+        bat 'xcopy /Y /E output C:\\Users\\gayathri\\Desktop\\Python\\Payroll_app\\Deployed\\'
+        bat 'xcopy /Y /E logs C:\\Users\\gayathri\\Desktop\\Python\\Payroll_app\\Deployed\\'
+        bat 'xcopy /Y /E payslips C:\\Users\\gayathri\\Desktop\\Python\\Payroll_app\\Deployed\\'
+        bat 'copy payroll_output.zip C:\\Users\\gayathri\\Desktop\\Python\\Payroll_app\\Deployed\\'
+         }
+      }
+
+
         
     }
 
