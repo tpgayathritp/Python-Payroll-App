@@ -34,6 +34,14 @@ pipeline {
                 archiveArtifacts artifacts: 'payroll_output.zip', fingerprint: true
             }
         }
+
+        stage('Archive Output') {
+           steps {
+                archiveArtifacts artifacts: '**/output/**', fingerprint: true
+            }
+        }
+
+        
     }
 
     post {
