@@ -17,7 +17,7 @@ steps:
 
   - script: |
       mkdir -p output
-      python Payroll_from_db.py
+      python Payroll.py
     displayName: 'Run Payroll App'
 
   - task: PublishBuildArtifacts@1
