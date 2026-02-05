@@ -173,7 +173,7 @@ if not os.path.exists(OUTPUT_DIR):
 
 def generate_summary_csv(summary_rows, payrun_timestamp):
    # filename = f"output/payroll_summary_{payrun_timestamp.replace(':', '').replace(' ', '_')}.csv"
-    filename = os.path.join(OUTPUT_DIR, f"payroll_summary_{payrun_timestamp}.csv")
+    filename = os.path.join(OUTPUT_DIR, f"payroll_summary_{payrun_timestamp.replace(':', '').replace(' ', '_')}.csv")
     with open(filename, "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([
