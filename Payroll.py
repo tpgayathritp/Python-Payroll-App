@@ -228,7 +228,6 @@ def calculate_payroll_for_employee(emp_row):
 
     return emp_id, name, result
 
-
 def run_payroll():
     logger.info("Starting payroll run")
 
@@ -299,4 +298,8 @@ if __name__ == "__main__":
         run_payroll()
     except Exception as e:
         logger.exception(f"Unhandled error in payroll run: {e}")
-        print("An error occurred. Check payroll_error.log for details.")
+        print("ERROR:", e)
+        import traceback
+        traceback.print_exc()
+        raise
+
