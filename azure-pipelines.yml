@@ -21,19 +21,17 @@ steps:
       python Payroll.py
     displayName: 'Debug Payroll App'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifacts'
-  inputs:
-    PathtoPublish: 'output'
-    ArtifactName: 'PayrollArtifacts'
-    publishLocation: 'Container'
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifacts'
+    inputs:
+      PathtoPublish: 'output'
+      ArtifactName: 'PayrollArtifacts'
+      publishLocation: 'Container'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Error Log'
-  condition: failed()
-  inputs:
-    PathtoPublish: 'payroll_error.log'
-    ArtifactName: 'ErrorLog'
-    publishLocation: 'Container'
-
-
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Error Log'
+    condition: failed()
+    inputs:
+      PathtoPublish: 'payroll_error.log'
+      ArtifactName: 'ErrorLog'
+      publishLocation: 'Container'
