@@ -65,3 +65,4 @@ def init_db():
 
 init_db()
 get_connection()
+seed_employees()
