@@ -102,6 +102,7 @@ def save_payslip(run_id, emp_id, result):
 # -----------------------------
 if not os.path.exists("payslips"):
     os.makedirs("payslips")
+    
 def generate_payslip_pdf(emp_id, name, result, payrun_timestamp):
     pdf = FPDF()
     pdf.add_page()
@@ -157,10 +158,13 @@ def generate_payslip_pdf(emp_id, name, result, payrun_timestamp):
     pdf.output(filename)
     logger.info(f"Generated payslip PDF: {filename}")
 
-if not os.path.exists("output"):
-    os.makedirs("output")
+OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
+if not os.path.exists(OUTPUT_DIR):
+    os.makedirs(OUTPUT_DIR)
+
 def generate_summary_csv(summary_rows, payrun_timestamp):
-    filename = f"output/payroll_summary_{payrun_timestamp.replace(':', '').replace(' ', '_')}.csv"
+   # filename = f"output/payroll_summary_{payrun_timestamp.replace(':', '').replace(' ', '_')}.csv"
+    filename = os.path.join(OUTPUT_DIR, f"payroll_summary_{safe_timestamp}.csv")
     with open(filename, "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([
