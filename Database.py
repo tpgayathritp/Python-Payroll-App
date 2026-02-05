@@ -65,5 +65,4 @@ def init_db():
     print("Database initialized successfully.")
 
 init_db()
-#get_connection()
 seed_employees()
