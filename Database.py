@@ -1,5 +1,6 @@
 import sqlite3
 import os
+from seed_employees import seed_employees
 
 DB_NAME = "payroll.db"
 
