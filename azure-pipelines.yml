@@ -16,9 +16,10 @@ steps:
     displayName: 'Install dependencies'
 
   - script: |
+      echo Running Payroll.py
       if not exist output mkdir output
       python Payroll.py
-    displayName: 'Run Payroll App'
+    displayName: 'Debug Payroll App'
 
   - task: PublishBuildArtifacts@1
     inputs:
