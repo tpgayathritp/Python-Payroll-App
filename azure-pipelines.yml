@@ -27,3 +27,10 @@ steps:
       ArtifactName: 'PayrollArtifacts'
       publishLocation: 'Container'
     displayName: 'Publish Artifacts'
+
+  - task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'payroll_error.log'
+    ArtifactName: 'ErrorLog'
+  condition: failed()
+
