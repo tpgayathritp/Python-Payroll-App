@@ -1,9 +1,14 @@
 import sqlite3
+import os
 
 DB_NAME = "payroll.db"
 
 def get_connection():
-    return sqlite3.connect("C:\\Users\\gayathri\\Desktop\\Python\\Projects\\Payroll Calculator\\payroll.db")
+  #  return sqlite3.connect("C:\\Users\\gayathri\\Desktop\\Python\\Projects\\Payroll Calculator\\payroll.db")
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(base_dir, "payroll.db")
+    return sqlite3.connect(db_path)
+
 
 
 def init_db():
