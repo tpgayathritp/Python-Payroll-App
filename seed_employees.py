@@ -1,4 +1,4 @@
-def seed_employees():
+def seed_employees(conn):
    # conn = get_connection()
     cursor = conn.cursor()
 
@@ -21,5 +21,5 @@ def seed_employees():
     print("Employees inserted successfully.")
 
 
-seed_employees()
+
 
