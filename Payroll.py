@@ -4,7 +4,14 @@ import logging
 from datetime import datetime
 from fpdf import FPDF
 from Database import get_connection, init_db
+from seed_employees import seed_employees
 
+# Initialize DB
+init_db()
+
+# Seed employees
+conn = get_connection()
+seed_employees(conn)
 
 
 # -----------------------------
