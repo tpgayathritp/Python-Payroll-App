@@ -28,7 +28,7 @@ steps:
       publishLocation: 'Container'
     displayName: 'Publish Artifacts'
 
-  - task: PublishBuildArtifacts@1
+  - task: PublishBuildArtifacts@2
   inputs:
     PathtoPublish: 'payroll_error.log'
     ArtifactName: 'ErrorLog'
