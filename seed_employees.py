@@ -1,7 +1,5 @@
-from Database import get_connection
-
 def seed_employees():
-    conn = get_connection()
+   # conn = get_connection()
     cursor = conn.cursor()
 
     employees = [
