@@ -16,7 +16,7 @@ steps:
     displayName: 'Install dependencies'
 
   - script: |
-      mkdir -p output
+      if not exist output mkdir output
       python Payroll.py
     displayName: 'Run Payroll App'
 
