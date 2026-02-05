@@ -1,6 +1,6 @@
 import sqlite3
 import os
-from seed_employees import seed_employees
+
 
 DB_NAME = "payroll.db"
 
@@ -65,4 +65,4 @@ def init_db():
     print("Database initialized successfully.")
 
 init_db()
-seed_employees()
+
