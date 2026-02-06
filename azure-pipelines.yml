@@ -37,17 +37,9 @@ steps:
 
 
   - task: PublishBuildArtifacts@1
-    displayName: 'Publish Error Log'
-    condition: failed()
-    inputs:
-      PathtoPublish: 'payroll_error.log'
-      ArtifactName: 'ErrorLog'
-      publishLocation: 'Container'
-
-  - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'logs'
     ArtifactName: 'Logs'
     publishLocation: 'Container'
-  displayName: 'Publish Payslips'
+  displayName: 'Publish Logs'
 
