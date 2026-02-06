@@ -20,7 +20,9 @@ Modular, maintainable code structure
 python SQLite Tkinter FPDF CSV
 
 Future Enhancements
-
+-------------------------------------
 Add/Edit/Delete employee screens
 Payroll history viewer
 Modern UI using CustomTkinter
+Password protected pdfs
+
