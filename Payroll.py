@@ -22,11 +22,17 @@ payrun_timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 payrun_date = datetime.now().strftime("%Y-%m-%d")
 
 
-if not os.path.exists("logs"):
-    os.makedirs("logs")
+#if not os.path.exists("logs"):
+ #   os.makedirs("logs")
 
-info_logfile = f"logs/payroll_{payrun_date}_info.log"
-error_logfile = f"logs/payroll_{payrun_date}_error.log"
+LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+info_logfile = os.path.join(LOG_DIR, f"payroll_{payrun_date}_info.log")
+error_logfile = os.path.join(LOG_DIR, f"payroll_{payrun_date}_error.log")
+#info_logfile = f"logs/payroll_{payrun_date}_info.log"
+#error_logfile = f"logs/payroll_{payrun_date}_error.log"
 
 logger = logging.getLogger("payroll")
 logger.setLevel(logging.INFO)
@@ -109,8 +115,12 @@ def save_payslip(run_id, emp_id, result):
 # -----------------------------
 # Output files
 # -----------------------------
-if not os.path.exists("payslips"):
-    os.makedirs("payslips")
+#if not os.path.exists("payslips"):
+  #  os.makedirs("payslips")
+
+PAYSLIPS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "payslips")
+if not os.path.exists(PAYSLIPS_DIR):
+    os.makedirs(PAYSLIPS_DIR)
     
 def generate_payslip_pdf(emp_id, name, result, payrun_timestamp):
     pdf = FPDF()
@@ -163,7 +173,8 @@ def generate_payslip_pdf(emp_id, name, result, payrun_timestamp):
     pdf.cell(0, 8, f"Pay run: {payrun_timestamp}", ln=True, align="C")
     pdf.cell(0, 8, "This is a system-generated payslip.", ln=True, align="C")
 
-    filename = f"payslips/payslip_{emp_id}.pdf"
+    #filename = f"payslips/payslip_{emp_id}.pdf"
+    filename = os.path.join(PAYSLIPS_DIR, f"payslip_{emp_id}.pdf")
     pdf.output(filename)
     logger.info(f"Generated payslip PDF: {filename}")
 
