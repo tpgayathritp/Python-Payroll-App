@@ -17,29 +17,29 @@ steps:
 
   - script: |
       echo Running Payroll.py
+      if not exist payslips mkdir payslips
+      if not exist logs mkdir logs
       if not exist output mkdir output
       python Payroll.py
-    displayName: 'Debug Payroll App'
+    displayName: 'Run Payroll App'
 
   - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifacts'
+    displayName: 'Publish Summary'
     inputs:
       PathtoPublish: 'output'
-      ArtifactName: 'PayrollArtifacts'
+      ArtifactName: 'Summary'
       publishLocation: 'Container'
 
   - task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'payslips'
-    ArtifactName: 'Payslips'
-    publishLocation: 'Container'
-  displayName: 'Publish Payslips'
-
+    displayName: 'Publish Payslips'
+    inputs:
+      PathtoPublish: 'payslips'
+      ArtifactName: 'Payslips'
+      publishLocation: 'Container'
 
   - task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'logs'
-    ArtifactName: 'Logs'
-    publishLocation: 'Container'
-  displayName: 'Publish Logs'
-
+    displayName: 'Publish Logs'
+    inputs:
+      PathtoPublish: 'logs'
+      ArtifactName: 'Logs'
+      publishLocation: 'Container'
