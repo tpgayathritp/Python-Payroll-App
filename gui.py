@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-from Payroll_from_db import run_payroll
+from Payroll import run_payroll
 from Database import get_connection
 
 
