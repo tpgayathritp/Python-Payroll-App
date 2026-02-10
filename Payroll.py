@@ -310,7 +310,8 @@ if __name__ == "__main__":
     except Exception as e:
         logger.exception(f"Unhandled error in payroll run: {e}")
         print("ERROR:", e)
+       # which line which function the exact error on console
         import traceback
-        traceback.print_exc()
+        traceback.print_exc() 
         raise
 
